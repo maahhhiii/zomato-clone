@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart - Food Delivery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header will be injected by JS -->
+  <div id="header-placeholder"></div>
+
+  <main class="cart-page">
+    <h1>Your Cart</h1>
+    <div id="cart-items-container">
+      <!-- Cart items populated by JS -->
+      <p id="empty-cart" class="empty-cart">Your cart is empty. <a href="index.html">Continue shopping</a></p>
+    </div>
+    <div class="cart-total">
+      <h3>Total: $<span id="cart-total">0</span></h3>
+      <button id="checkout-btn" onclick="checkout()" disabled>Checkout</button>
+    </div>
+    <button onclick="goHome()">← Continue Shopping</button>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    window.onload = function() {
+      loadHeader();
+      displayCart();
+    };
+  </script>
+</body>
+</html>
+

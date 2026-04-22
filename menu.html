@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu - Food Delivery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header will be injected by JS -->
+  <div id="header-placeholder"></div>
+
+  <main class="menu-page">
+    <div class="restaurant-header">
+      <h1 id="restaurant-name">Restaurant Menu</h1>
+      <button onclick="goHome()">← Back to Home</button>
+    </div>
+    <div class="search-bar">
+      <input type="text" id="menu-search" placeholder="Search menu items..." oninput="searchMenu()">
+    </div>
+    <div id="menu-items-container" class="menu-grid">
+      <!-- Menu items populated by JS -->
+    </div>
+  </main>
+
+  <!-- Cart modal will be injected by JS -->
+
+  <script src="script.js"></script>
+  <script>
+    // Load menu on page load
+    window.onload = function() {
+      loadHeader();
+      // Get restaurant ID from URL or sessionStorage
+      const urlParams = new URLSearchParams(window.location.search);
+      const id = parseInt(urlParams.get('id')) || parseInt(sessionStorage.getItem('currentRestaurantId'));
+      if (id) {
+        sessionStorage.setItem('currentRestaurantId', id);
+        const restaurant = getCurrentRestaurant();
+        if (restaurant) {
+          document.getElementById('restaurant-name').textContent = restaurant.name;
+          displayMenu(restaurant);
+        }
+      }
+    };
+  </script>
+</body>
+</html>
+

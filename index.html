@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Delivery - Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="header-placeholder"></div>
+
+  <main>
+    <section class="hero">
+      <h1>Order Food Online<br>From Your Favorite Restaurants</h1>
+      <p>Fast delivery to your doorstep</p>
+    </section>
+
+    <div class="search-section">
+      <h2>Restaurants near you in <span id="current-location">Bhubaneswar</span><span>...</span></h2>
+      <div class="search-bar" style="max-width: 500px; margin: 0 auto 2rem;">
+        <span class="search-icon">🔍</span>
+        <input type="text" class="search-input" id="search-input" placeholder="Search restaurants..." oninput="searchRestaurants()">
+      </div>
+    </div>
+
+    <section class="restaurants-section">
+      <div id="cardContainer" class="restaurants-grid">
+        <!-- Restaurants populated by JS -->
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    window.onload = function() {
+      loadHeader();
+      document.getElementById('current-location').textContent = currentLocation;
+      displayRestaurants(restaurants);
+    };
+  </script>
+</body>
+</html>
+
